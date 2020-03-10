@@ -17,5 +17,6 @@ Definition:
   - Black: Unspecified
 
 The background map is from Maanmittauslaitos (https://www.maanmittauslaitos.fi/avoindata-lisenssi-cc40).
+To view the map properly, the map file must be in the folder that is one directory back from the graph HTMLs. 
 
 Author: Mikael Koli
