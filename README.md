@@ -15,6 +15,7 @@ Definition:
   - Green: Italy
   - Red: China
   - Black: Unspecified
-  
+
+The background map is from Maanmittauslaitos (https://www.maanmittauslaitos.fi/avoindata-lisenssi-cc40).
 
 Author: Mikael Koli
