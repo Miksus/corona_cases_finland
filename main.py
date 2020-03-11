@@ -28,23 +28,26 @@ df_locs = pd.read_csv("sairaanhoitopiirit.csv", sep=";")
 df["healthCareDistrictExpanded"] = df["healthCareDistrict"].replace(df_locs.set_index("Short name")["Full name"].to_dict())
 df = df.join(df_locs.set_index("Full name")[["x", "y"]], on="healthCareDistrictExpanded")
 
-# Jittering
-df["x"] = df["x"] +  np.random.normal(0, 2000,df.shape[0])
-df["y"] = df["y"] +  np.random.normal(0, 2000,df.shape[0])
-
-# Position dict ({id: (x, y)})
-positions = df.set_index("id")[["x", "y"]].apply(lambda row: {row.name: (row["x"], row["y"])}, axis=1).tolist()
-positions = {id_: pos for row in positions for id_, pos in row.items()}
-
 # Network X stuff
 kwds_network = dict(layout_function=nx.spring_layout)#, k=0.05,iterations=100)
 
 G = nx.DiGraph()
 G.add_nodes_from(df.id.tolist())
+
 G.add_edges_from(
     df[df["infectionSource"].apply(lambda x: isinstance(x, int))].apply(lambda row: (row["id"], str(row["infectionSource"])), axis=1).tolist()
     ,length=[200] * df[df["infectionSource"].apply(lambda x: isinstance(x, int))].shape[0]
 )
+
+# Jittering
+jittering = nx.spring_layout(G)
+df["x"] = df.apply(lambda row: (row["x"] + jittering[row["id"]][0] * 5000), axis=1) #df["x"] +  np.random.normal(0, 2000,df.shape[0])
+df["y"] = df.apply(lambda row: (row["y"] + jittering[row["id"]][1] * 5000), axis=1) # df["y"] +  np.random.normal(0, 2000,df.shape[0])
+
+# Position dict ({id: (x, y)})
+positions = df.set_index("id")[["x", "y"]].apply(lambda row: {row.name: (row["x"], row["y"])}, axis=1).tolist()
+positions = {id_: pos for row in positions for id_, pos in row.items()}
+
 
 plot_data = {"index": list(G.nodes()), 
              "id": list(G.nodes()),
