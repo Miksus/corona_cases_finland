@@ -1,8 +1,8 @@
 # Corona Infections Finland (HTML dashboard)
 > Interactive network Graph on a map using Corona infection data
 
-![Example](example.png)
-![Example2](example_tab2.png)
+![Example](docs/example.png)
+![Example2](docs/example_tab2.png)
 
 Picture Updated: 14.3.2020
 
