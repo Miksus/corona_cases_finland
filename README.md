@@ -1,9 +1,10 @@
-# Corona Infections Finland (Network Graph)
+# Corona Infections Finland (HTML dashboard)
 > Interactive network Graph on a map using Corona infection data
 
 ![Example](example.png)
+![Example2](example_tab2.png)
 
-Picture Updated: 11.3.2020
+Picture Updated: 14.3.2020
 
 ---
 ## How to display it?
@@ -14,15 +15,6 @@ Picture Updated: 11.3.2020
 ## Description
 This is a network graph to inspect how the Corona infections spread from person to person in Finland.
 This graph uses HS's Corona open data API (https://github.com/HS-Datadesk/koronavirus-avoindata).
-
-Definition of the plot:
-- Each dot represents an infection case
-- Each link represents a known infection (from person to person)
-- Colors represents the source country. Hard coded mapping (black represents lack of mapping).
-  - Blue: Finland
-  - Green: Italy
-  - Red: China
-  - Black: Unspecified
 
 ---
 ## Dependencies (for the Python script)
