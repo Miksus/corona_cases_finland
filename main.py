@@ -271,7 +271,7 @@ if __name__ == "__main__":
     data_table = get_datatable(datasource)
 
     p_obs = get_timeline_plot(datasource, toolbox, names=most_infected_loc, y="healthCareDistrict", title="Observations per location")
-    p_area = get_timeseries_plot(df_count_loc, toolbox, p_obs.x_range, names=most_infected_loc, title="Observations per location")
+    p_area = get_timeseries_plot(df_count_loc, toolbox, p_obs.x_range, names=most_infected_loc, title="Active cases per location")
 
     p_obs_source = get_timeline_plot(datasource, toolbox, names=most_infected_orig, y="origin", title="Observations per origin")
     p_area_source = get_timeseries_plot(df_count_orig, toolbox, p_obs_source.x_range, names=most_infected_orig, title="Active cases per origin")
