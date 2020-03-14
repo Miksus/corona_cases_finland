@@ -1,5 +1,6 @@
 # Corona Infections Finland (HTML dashboard)
 > A dashboard on a map using Corona infection data
+
 > Features network graph on a map and time series plotting
 
 ![Example](docs/example.png)
