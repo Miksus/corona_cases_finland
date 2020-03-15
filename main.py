@@ -282,10 +282,11 @@ if __name__ == "__main__":
         Panel(child=gridplot([[p_obs_source], [p_area_source]]), title="Origin") 
     ])
 
-    div = Div(text="""
-    This is a Corona Dashboard for cases in Finland.
+    div = Div(text=f"""
+    <h2>Corona Dashboard for cases in Finland.</h2>
     Author: Mikael Koli
+    <br>Updated: {datetime.datetime.now().strftime('%H:%M %d.%m.%Y')}
     """,
-    width=500, height=50)
+    width=500, height=100)
 
     show(gridplot([[div], [tabs]], toolbar_location=None))
