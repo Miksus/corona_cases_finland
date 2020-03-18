@@ -81,8 +81,16 @@ def get_data():
     #df = pd.DataFrame(json["confirmed"])
     #df["date"] = pd.to_datetime(df["date"])
 
+    # Filling nans for some value to prevent error
+    df_confirmed["healthCareDistrict"] = df_confirmed["healthCareDistrict"].fillna("Unknown")
+
     df_confirmed = set_case_status(df_confirmed, json)
     df_confirmed = set_coordinates(df_confirmed)
+
+
+    # Filling nans for some value to prevent error
+    df_confirmed["x"] = df_confirmed["x"].fillna(21021 + 500)
+    df_confirmed["y"] = df_confirmed["y"].fillna(6570360 + 500)
 
     df_confirmed = jitter_coordinates(df_confirmed)
 
